@@ -1,0 +1,37 @@
+
+
+weight = float(input("enter the weight of the parcel"))
+
+ground_shipping = ""
+
+ground_shipping_flat_rate = 20
+
+ground_shipping_premium = 125
+
+drone_shipping = 0
+
+if weight <= 2:
+  ground_shipping = (1.5 * weight) + ground_shipping_flat_rate
+  drone_shipping = (4.5 * weight)
+elif weight <= 6:
+  ground_shipping = (3 * weight) + ground_shipping_flat_rate
+  drone_shipping = 9 * weight
+elif weight <= 10:
+  ground_shipping = (4 * weight) + ground_shipping_flat_rate
+  drone_shipping = 12 * weight
+elif weight > 10:
+  ground_shipping = (4.75 * weight) + ground_shipping_flat_rate
+  drone_shipping = 14.25 * weight
+else:
+    print("error")
+
+if ground_shipping < ground_shipping_premium and ground_shipping < drone_shipping:
+    print("send the parcel via ground shipping, the total cost is:", ground_shipping)
+elif drone_shipping < ground_shipping_premium and drone_shipping < ground_shipping:
+    print("send the parcel via drone shipping, the total cost is:", drone_shipping)
+else:
+    print("send the parcel via premium ground shipping, the total cost is:", ground_shipping_premium)
+
+print("ground shipping rate", ground_shipping)
+print("drone shipping rate", drone_shipping)
+print("ground shipping premium rate", ground_shipping_premium)
